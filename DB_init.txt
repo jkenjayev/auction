@@ -1,0 +1,26 @@
+
+I. Initializing database table fields.
+	1. Bidders table:
+		>> bidderid 	type -> interger.
+		>> lastname 	type -> varchar(100).
+		>> firstname 	type -> varchar(100).
+		>> address 		type -> varchar(100).
+		>> phone		type -> varchar(14).
+
+	2. Items table:
+		>> itemid       type -> interger.
+		>> name			type -> varchar(100).
+		>> description  type -> text.
+		>> resalePrice  type -> decimal.
+		>> winBidder    type -> interger.
+		>> winPrice		type -> decimal.
+
+	3. Admins table:
+		>> userid 		type -> varchar(20).
+		>> name			type -> varchar(100).
+		>> password		type -> char(64).
+
+II. Hashing the password using MySQL's SHA2() function.
+	1. When creating the user I must use the SHA2() function as:
+		INSERT INTO Admins VALUES('rich', 'Rich Blum', SHA2('myl0ngP@ssword', 256));
+
