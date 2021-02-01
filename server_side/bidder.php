@@ -25,7 +25,7 @@
 
 		function saveBidder() {
 			$connDB = mysqli_connect('localhost', 'root', 'root', 'auctionHelper');
-			$query = "INSERT INTO bidders VALUES($this->bidderid, "$this->lastname", "$this->firstname", "$this->address", "$this->phone")";
+			// $query = "INSERT INTO bidders VALUES("$this->bidderid", "$this->lastname", "$this->firstname", "$this->address", "$this->phone")";
 			$queryResult = mysqli_query($connDB, $query);
 
 			$connDB->close();
@@ -34,7 +34,7 @@
 
 		function updateBidder() {
 			$connDB = mysqli_connect('localhost', 'root', 'root', 'auctionHelper');
-			$query = "UPDATE bidders SET bidderid=$this->bidderid, lastname="$this->lastname", firstname="$this->firstname", address="$this->address", phone="$this->phone" WHERE bidderid=$this->bidderid";
+			// $query = "UPDATE bidders SET bidderid=$this->bidderid, lastname="$this->lastname", firstname="$this->firstname", address="$this->address", phone="$this->phone" WHERE bidderid=$this->bidderid";
 			$queryResult = mysqli_query($connDB, $queryResult);
 
 			$connDB->close();
