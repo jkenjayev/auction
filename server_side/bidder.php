@@ -25,7 +25,7 @@
 
 		function saveBidder() {
 			$connDB = mysqli_connect('localhost', 'root', 'root', 'auctionHelper');
-			// $query = "INSERT INTO bidders VALUES("$this->bidderid", "$this->lastname", "$this->firstname", "$this->address", "$this->phone")";
+			$query = "INSERT INTO bidders VALUES($this->bidderid, $this->lastname, $this->firstname, $this->address, $this->phone)";
 			$queryResult = mysqli_query($connDB, $query);
 
 			$connDB->close();
@@ -34,8 +34,8 @@
 
 		function updateBidder() {
 			$connDB = mysqli_connect('localhost', 'root', 'root', 'auctionHelper');
-			// $query = "UPDATE bidders SET bidderid=$this->bidderid, lastname="$this->lastname", firstname="$this->firstname", address="$this->address", phone="$this->phone" WHERE bidderid=$this->bidderid";
-			$queryResult = mysqli_query($connDB, $queryResult);
+			$query = "UPDATE bidders SET lastname=$this->lastname, firstname=$this->firstname, address=$this->address, phone=$this->phone WHERE bidderid=$this->bidderid";
+			$queryResult = mysqli_query($connDB, $query);
 
 			$connDB->close();
 			return $queryResult;
@@ -44,7 +44,7 @@
 		function removeBidder() {
 			$connDB = mysqli_connect('localhost', 'root', 'root', 'auctionHelper');
 			$query = "DELETE FROM bidders WHERE bidderid=$this->bidderid";
-			$queryResult = mysqli_query($connDB, $queryResult);
+			$queryResult = mysqli_query($connDB, $query);
 
 			return $queryResult;
 		}
@@ -76,7 +76,7 @@
 			$row = $queryResult->fetch_array(MYSQLI_ASSOC);
 			
 			if($row) {
-			$bidder = new Bidder($bid['bidderid'], $bid['lastname'], $bid['firstname'], $bid['address'], $bid['phone']);
+			$bidder = new Bidder($row['bidderid'], $row['lastname'], $row['firstname'], $row['address'], $row['phone']);
 
 			$connDB->close();
 			return $bidder;
@@ -86,4 +86,4 @@
 			}
 		}
 	}
- ?>e
+ ?>
