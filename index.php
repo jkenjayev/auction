@@ -18,7 +18,7 @@
 				if(isset($_REQUEST['content'])) {
 					include($_REQUEST['content']. ".inc.php");
 				} else {
-					incude("modules/main.inc.php");
+					include("modules/main.inc.php");
 				}
 			 ?>
 		</main>
